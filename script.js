@@ -34,7 +34,7 @@ signupBtn.addEventListener("submit", (event) => {
     // Show success message and redirect to profile page
     
     setTimeout(() => {
-        window.location.href = "../profile/index.html";
+        window.location.href = "./profile/index.html";
     }, 1000); // redirect after 1 second
 });
 
