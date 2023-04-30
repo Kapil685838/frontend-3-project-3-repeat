@@ -18,14 +18,21 @@ signupBtn.addEventListener("submit", (event) => {
     };
 
     // Validating the form.
+    const msg = document.getElementById('msg');
     if(user.name === "" || user.email === "" || user.password === "") {
-        document.getElementById('error-msg').style.display = "block";
+        msg.innerHTML = "Error: All the fields are mandatory";
+        msg.style.display = "block";
+        msg.style.color = "red";
         return;
     } else if(user.password !== confirmPassword) {
-        document.getElementById('password-mismatch-msg').style.display = "block";
+        msg.innerHTML = "Password and Confirm password not matched.";
+        msg.style.display = "block";
+        msg.style.color = "red";
         return;
     } else {
-        document.getElementById("success-msg").style.display = "block";
+        msg.innerHTML = "Signup successful!";
+        msg.style.display = "block";
+        msg.style.color = "green";
     }
 
     // Store the user's state in the local storage
@@ -34,7 +41,7 @@ signupBtn.addEventListener("submit", (event) => {
     // Show success message and redirect to profile page
     
     setTimeout(() => {
-        window.location.href = "/profile/index.html";
+        window.location.href = "./profile/index.html";
     }, 1000); // redirect after 1 second
 });
 
@@ -51,8 +58,8 @@ const profile = document.getElementById('profile');
 profile.addEventListener('click', () => {
     const user = JSON.parse(localStorage.getItem('user')) || false;
     if(user) {
-        window.location.href = "/profile/index.html";
+        window.location.href = "./profile/index.html";
     } else {
-        window.location.href = "/index.html";
+        window.location.href = "./index.html";
     }
 });
