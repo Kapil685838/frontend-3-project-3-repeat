@@ -53,7 +53,7 @@ function generateAccessToken() {
     return accessToken;
 }
 
-
+// redirection the page according to user in database
 const profile = document.getElementById('profile');
 profile.addEventListener('click', () => {
     const user = JSON.parse(localStorage.getItem('user')) || false;
